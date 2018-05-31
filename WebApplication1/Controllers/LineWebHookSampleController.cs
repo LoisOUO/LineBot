@@ -9,8 +9,8 @@ namespace WebApplication1.Controllers
 {
     public class LineBotWebHookController : isRock.LineBot.LineWebHookControllerBase
     {
-        const string channelAccessToken = "!!!!! 改成自己的ChannelAccessToken !!!!!";
-        const string AdminUserId= "!!!改成你的AdminUserId!!!";
+        const string channelAccessToken = "CVfzZeskAfcQeyevyc7k4bBONPU3oCtT0oydYm9MrDXKYK2oHC0KtjGF1wAjogrhrKM42B3Fu7DWHFNzEC9rDliPH09/3uAkIDXarQpSMACeX8fupBUpZXamhLdWsO+/PaQFpBoWHSYhRYXK6DmNUAdB04t89/1O/w1cDnyilFU=";
+        const string AdminUserId= "U26dd87213fa1f3d11d0a0a4d57a54cb5";
 
         [Route("api/LineWebHookSample")]
         [HttpPost]
