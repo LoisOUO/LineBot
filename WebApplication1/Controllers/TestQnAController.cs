@@ -28,10 +28,10 @@ namespace StudyHostExampleLinebot.Controllers
                 var LineEvent = this.ReceivedMessage.events.FirstOrDefault();
                 //配合Line verify 
                 //"000000"特例 確定他是成功的
-                if (LineEvent.replyToken == "00000000000000000000000000000000") return Ok();
-
-                //回覆訊息
+                if (LineEvent.replyToken == "00000000000000000000000000000000") return Ok();  
                 //this.PushMessage(LineEvent.source.userId,"XXX"); //找個人的userID 私訊
+                //回覆訊息
+
                 if (LineEvent.type == "message")
                 {
                     var repmsg = ""; //判斷收到訊息的類型

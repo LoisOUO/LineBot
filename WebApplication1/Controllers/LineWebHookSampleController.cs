@@ -26,15 +26,22 @@ namespace WebApplication1.Controllers
                 if (LineEvent.replyToken == "00000000000000000000000000000000") return Ok();
                 //回覆訊息
                 //var UrseName= this.PushMessage(LineEvent.source.userId,"XXX"); //找個人的userID 私訊
-                var UrseName= this.PushMessage(LineEvent.source.userId,"XXX"); //找個人的userID 私訊
                 //去抓資料庫
                 if (LineEvent.type == "message")
                 {
                     if (LineEvent.message.type == "text") //收到文字    this.PushMessage(LineEvent.source.userId, "XXX");
-                    this.ReplyMessage(LineEvent.replyToken, "我可以回答任何問題~" + LineEvent.source.userId);
+       
                     this.ReplyMessage(LineEvent.replyToken, "我可以回答任何問題~" + LineEvent.message.text);
+                    if (LineEvent.message.text == "hello")
+                    {
+                        this.ReplyMessage(LineEvent.replyToken,"!!!!!!");
+                    }
+
+
                     if (LineEvent.message.type == "sticker") //收到貼圖
                         this.ReplyMessage(LineEvent.replyToken, 1, 2);
+
+
                 }
                 //response OK
                 return Ok();

@@ -29,5 +29,11 @@ namespace WebApplication1
             var bot = new Bot(channelAccessToken);
             bot.PushMessage(AdminUserId, 1,2);
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            var bot = new Bot(channelAccessToken);
+            bot.PushMessage(AdminUserId, 1, 2);
+        }
     }
 }
