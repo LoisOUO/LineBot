@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
                     if (LineEvent.message.type == "text") //收到文字    this.PushMessage(LineEvent.source.userId, "XXX");
        
                     this.ReplyMessage(LineEvent.replyToken, "我可以回答任何問題~" + LineEvent.message.text);
-                    if (LineEvent.message.ToString() == "hello")
+                    if (LineEvent.message.text== "hello")
                     {
                         this.ReplyMessage(LineEvent.replyToken,"!!!!!!");
                     }
