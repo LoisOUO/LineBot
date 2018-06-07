@@ -41,6 +41,15 @@ namespace WebApplication1.Controllers
                         {
                             this.ReplyMessage(LineEvent.replyToken, "?");
                         }
+                    if (LineEvent.message.text.Contains("雨"))
+                        this.ReplyMessage(LineEvent.replyToken, userInfo.displayName + "記得拿傘");
+                    else
+                    {
+                        this.ReplyMessage(LineEvent.replyToken, "?");
+                    }
+
+
+
 
                     if (LineEvent.message.type == "sticker") //收到貼圖
                         this.ReplyMessage(LineEvent.replyToken, 1, 2);
