@@ -39,18 +39,28 @@ namespace WebApplication1.Controllers
                         string str = userInfo.displayName;
 
                         if (LineEvent.message.text.Contains("hello"))
-                            str += "，今天天氣不錯";
+                            str += "~hello";
 
-                        if (LineEvent.message.text.Contains("雨"))
-                            str += "，記得拿傘";
+                        if (LineEvent.message.text.Contains("畢業門檻?"))
+                            str += "，系必修有60學分，選修要28學分，核心要記得各領域各一個，通識10學分";
 
-                        this.ReplyMessage(LineEvent.replyToken, str +"~");
+                        if (LineEvent.message.text.Contains("必修"))
+                            str += "，系上必修60學分，英文6學分";
 
+                        if (LineEvent.message.text.Contains("選課") || LineEvent.message.text.Contains("選修"))
+                            str += "已經超過時間了啦";
+
+                        if (LineEvent.message.text.Contains("退選") || LineEvent.message.text.Contains("二退"))
+                            str += " 今年的二退時間已過，你還是認命吧哈哈哈哈哈";
+
+
+                        if (str.Length <= userInfo.displayName.Length + 10)
+                        {
+                            str += "除了選課，其他都不要問我哈哈哈哈哈哈哈";
+                        }
+                        this.ReplyMessage(LineEvent.replyToken, str + "~");
                     }
-                    else
-                    {
-                        this.ReplyMessage(LineEvent.replyToken, "怎麼了?");
-                    }
+
                     if (LineEvent.message.type == "sticker") //收到貼圖
                         this.ReplyMessage(LineEvent.replyToken, 1, 2);
 
