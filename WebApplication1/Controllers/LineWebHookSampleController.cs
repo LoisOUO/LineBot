@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class LineBotWebHookController : isRock.LineBot.LineWebHookControllerBase
     {
         const string channelAccessToken = "CVfzZeskAfcQeyevyc7k4bBONPU3oCtT0oydYm9MrDXKYK2oHC0KtjGF1wAjogrhrKM42B3Fu7DWHFNzEC9rDliPH09/3uAkIDXarQpSMACeX8fupBUpZXamhLdWsO+/PaQFpBoWHSYhRYXK6DmNUAdB04t89/1O/w1cDnyilFU=";
-        const string AdminUserId= "U26dd87213fa1f3d11d0a0a4d57a54cb5";
+        const string AdminUserId = "U26dd87213fa1f3d11d0a0a4d57a54cb5";
 
         [Route("api/LineWebHookSample")]
         [HttpPost]
@@ -33,17 +33,15 @@ namespace WebApplication1.Controllers
                 var userInfo = bot.GetUserInfo(LineId);
                 if (LineEvent.type == "message")
                 {
-                    //if (LineEvent.message.type == "text") //收到文字    this.PushMessage(LineEvent.source.userId, "XXX");
-       
                     //this.ReplyMessage(LineEvent.replyToken,"我可以回答任何問題~" + LineEvent.message.text+ userInfo);
-
-                    if (LineEvent.message.type == "text")
+                    if (LineEvent.message.type == "text")//收到文字 
                         if (LineEvent.message.text == "hello") //
-                        this.ReplyMessage(LineEvent.replyToken, userInfo.displayName + "今天天氣不錯" );
-                        else {
-                        this.ReplyMessage(LineEvent.replyToken,"?");
-                            }
-                   
+                            this.ReplyMessage(LineEvent.replyToken, userInfo.displayName + "今天天氣不錯");
+                        else
+                        {
+                            this.ReplyMessage(LineEvent.replyToken, "?");
+                        }
+
                     if (LineEvent.message.type == "sticker") //收到貼圖
                         this.ReplyMessage(LineEvent.replyToken, 1, 2);
 
