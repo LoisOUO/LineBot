@@ -23,15 +23,18 @@ namespace StudyHostExampleLinebot.Controllers
             try
             {
                 //設定ChannelAccessToken(或抓取Web.Config)
-                this.ChannelAccessToken = channelAccessToken;
-                //取得Line Event(範例，只取第一個)
+                this.ChannelAccessToken = channelAccessToken; //
+                //取得Line Event(範例，只取第一個) 
                 var LineEvent = this.ReceivedMessage.events.FirstOrDefault();
                 //配合Line verify 
+                //"000000"特例 確定他是成功的
                 if (LineEvent.replyToken == "00000000000000000000000000000000") return Ok();
+
                 //回覆訊息
+                //this.PushMessage(LineEvent.source.userId,"XXX"); //找個人的userID 私訊
                 if (LineEvent.type == "message")
                 {
-                    var repmsg = "";
+                    var repmsg = ""; //判斷收到訊息的類型
                     if (LineEvent.message.type == "text") //收到文字
                     {
                         //建立 MsQnAMaker Client
