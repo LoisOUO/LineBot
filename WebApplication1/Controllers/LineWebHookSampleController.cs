@@ -29,7 +29,7 @@ namespace WebApplication1.Controllers
                 //去抓資料庫
                 //this.GetUserInfo();
                 isRock.LineBot.Bot bot = new isRock.LineBot.Bot(channelAccessToken);
-                string LineId = this.ReceivedMessage.events.FirstOrDefault().source.userId;
+                string LineId = ReceivedMessage.events.FirstOrDefault().source.userId;
                 var userInfo = bot.GetUserInfo(LineId);
                 if (LineEvent.type == "message")
                 {
