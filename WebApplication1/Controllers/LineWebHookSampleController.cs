@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
                 //this.GetUserInfo();
                 isRock.LineBot.Bot bot = new isRock.LineBot.Bot(channelAccessToken);
                 string LineId = this.ReceivedMessage.events.FirstOrDefault().source.userId;
-                var userName = bot.GetUserInfo(LineId);
+                var userInfo = bot.GetUserInfo(LineId);
                 if (LineEvent.type == "message")
                 {
                     if (LineEvent.message.type == "text") //收到文字    this.PushMessage(LineEvent.source.userId, "XXX");
@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
                     this.ReplyMessage(LineEvent.replyToken,"我可以回答任何問題~" + LineEvent.message.text);
 
                     if (LineEvent.message.text == "hello") //
-                        this.ReplyMessage(LineEvent.replyToken, userName + "今天天氣不錯" + LineEvent.message.text);
+                        this.ReplyMessage(LineEvent.replyToken, userInfo.displayName + "今天天氣不錯" );
                     else {
                         this.ReplyMessage(LineEvent.replyToken,"?");
                             }
