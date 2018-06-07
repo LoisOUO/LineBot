@@ -33,13 +33,14 @@ namespace WebApplication1.Controllers
                 var userInfo = bot.GetUserInfo(LineId);
                 if (LineEvent.type == "message")
                 {
-                    if (LineEvent.message.type == "text") //收到文字    this.PushMessage(LineEvent.source.userId, "XXX");
+                    //if (LineEvent.message.type == "text") //收到文字    this.PushMessage(LineEvent.source.userId, "XXX");
        
-                    this.ReplyMessage(LineEvent.replyToken,"我可以回答任何問題~" + LineEvent.message.text+ userInfo);
+                    //this.ReplyMessage(LineEvent.replyToken,"我可以回答任何問題~" + LineEvent.message.text+ userInfo);
 
-                    if (LineEvent.message.text == "hello") //
+                    if (LineEvent.message.type == "text")
+                        if (LineEvent.message.text == "hello") //
                         this.ReplyMessage(LineEvent.replyToken, userInfo.displayName + "今天天氣不錯" );
-                    else {
+                        else {
                         this.ReplyMessage(LineEvent.replyToken,"?");
                             }
                    
