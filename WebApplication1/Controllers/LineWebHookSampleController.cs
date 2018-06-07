@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
                 {
                     //this.ReplyMessage(LineEvent.replyToken,"我可以回答任何問題~" + LineEvent.message.text+ userInfo);
                     if (LineEvent.message.type == "text")//收到文字 
-                        if (LineEvent.message.text.Contains("hello") )//== "hello") //
+                    {       if (LineEvent.message.text.Contains("hello"))//== "hello") //
                             this.ReplyMessage(LineEvent.replyToken, userInfo.displayName + "今天天氣不錯");
                         else
                         {
@@ -43,10 +43,11 @@ namespace WebApplication1.Controllers
                         }
                     if (LineEvent.message.text.Contains("雨"))
                         this.ReplyMessage(LineEvent.replyToken, userInfo.displayName + "記得拿傘");
-                    else
-                    {
-                        this.ReplyMessage(LineEvent.replyToken, "?");
-                    }
+
+                } else
+                {
+                    this.ReplyMessage(LineEvent.replyToken, "?");
+                }
 
 
 
